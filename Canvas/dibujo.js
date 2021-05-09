@@ -1,22 +1,28 @@
 var d = document.getElementById("Dibujito");
 var lienzo = d.getContext("2d");
-console.log(lienzo);
-lienzo.beginPath();
-lienzo.strokeStyle = "green";
-lienzo.moveTo(199, 89);
-lienzo.lineTo(300, 50);
-lienzo.stroke();
-lienzo.closePath();
+var lineas = 30;
+var l = 0; //cuenta las lineas
+var yi, xf;
 
-dibujarLinea("red", 10, 300, 220, 10);
-dibujarLinea("black", 300, 10, 20, 210);
+while (l < lineas) {
+  //lo ejecuta tantas veces cuanto la operacion sea verdad
 
-function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal)
-{
-lienzo.beginPath();
-lienzo.strokeStyle = color;
-lienzo.moveTo(xinicial, yinicial);
-lienzo.lineTo(xfinal, yfinal);
-lienzo.stroke();
-lienzo.closePath();
+  yi = 10 * l; //ecuacion de ciclo
+  xf = 10 * (l + 1);
+  dibujarLinea("#AAF", 0, yi, xf, 300);
+
+  console.log("linea " + l);
+  l = l + 1;
+}
+dibujarLinea("RED", 1, 1, 1, 299);
+dibujarLinea("RED", 1, 299, 299, 299);
+
+
+function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal) {
+  lienzo.beginPath();
+  lienzo.strokeStyle = color;
+  lienzo.moveTo(xinicial, yinicial);
+  lienzo.lineTo(xfinal, yfinal);
+  lienzo.stroke();
+  lienzo.closePath();
 }
